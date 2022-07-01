@@ -15,7 +15,7 @@ vector_version: "0.22.0"
 
 Dependencies
 ------------
--
+unzip
 
 Example Playbook
 ----------------
