@@ -55,12 +55,12 @@
     executable: /bin/bash
   changed_when: false
 - name: Install VECTOR by APT
-  become: true
+#  become: true
   ansible.builtin.apt:
     update_cache: yes
     package: "vector"
 - name: Vector config
-  become: true
+#  become: true
   ansible.builtin.template: 
     src: 'templates/vector.toml.j2'
     dest: '/etc/vector/vector.toml'
@@ -68,7 +68,7 @@
     owner: '{{ ansible_user_id }}'
     group: '{{ ansible_user_gid }}'
 - name: ADD vector.service to system dir
-  become: true
+#  become: true
   ansible.builtin.template: 
     src: 'templates/vector.service.j2'
     dest: /etc/systemd/system/vector.service
@@ -76,7 +76,7 @@
     owner: '{{ ansible_user_id }}'
     group: '{{ ansible_user_gid }}'
 - name: Starting vector by systemd
-  become: true
+#  become: true
   ansible.builtin.systemd:
     name: vector
     state: started
